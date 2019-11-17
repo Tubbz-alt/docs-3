@@ -5,8 +5,12 @@
 ## Modules
 
 * [Fractional NFT](modules/fnft.md)
-* [Schema](modules/schema.md)
 * [Data](modules/data.md)
-* [Timestamp](modules/timestamp.md)
 * [Group](modules/group.md)
+* [DEX](modules/dex.md)
+
+## DRAFT
+
+* [Schema](draft/schema.md)
+* [Timestamp](draft/timestamp.md)
 
