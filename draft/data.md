@@ -4,13 +4,17 @@
 
 ### HashIRI
 
-```
+```text
 scalar HashIRI
 ```
 
+* Multihash
+* URDNA2015
+* DRGCA2019 \(Directed RDF Graph Canonicalization Algorithm 2019\)
+
 ### Datatypes
 
-```
+```text
 enum Datatype (
   Bool
   Integer
@@ -27,7 +31,7 @@ enum Datatype (
 
 ### Namespaces
 
-```
+```text
 tx CreateNamespace(name string) HashIRI
 ```
 
@@ -35,7 +39,7 @@ tx CreateNamespace(name string) HashIRI
 
 #### Data Properties
 
-```
+```text
 tx CreateDataProperty(
   namespace HashIRI,
   name string,
@@ -46,7 +50,7 @@ tx CreateDataProperty(
 
 #### Object Properties
 
-```
+```text
 tx CreateObjectProperty(
   namespace HashIRI,
   name string,
@@ -58,7 +62,7 @@ tx CreateObjectProperty(
 
 #### Arity
 
-```
+```text
 enum Arity (
   One,
   Ordered,
@@ -68,7 +72,7 @@ enum Arity (
 
 ### Classes
 
-```
+```text
 tx CreateClass(
   namespace HashIRI,
   name string,
@@ -79,18 +83,19 @@ tx CreateClass(
 
 ## Anchoring Data
 
-```
+```text
 tx AnchorData(iri HashIRI)
 ```
 
 ### Registering URL's for Anchored Data
-```
+
+```text
 tx RegisterDataURL(iri HashIRI, urls URL*)
 ```
 
 ## Signing Data
 
-```
+```text
 tx SignData(iri HashIRI)
 ```
 
@@ -102,12 +107,13 @@ tx StoreGraph(data bytes)
 
 ### Storing Part of a Graph
 
-```
+```text
 tx StorePartialData(iri HashIRI, proofs ics23.ExistenceProof*)
 ```
 
 ## State
-```
+
+```text
 table Namespace {
   iri: HashIRI
   owner: Address
