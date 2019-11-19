@@ -5,17 +5,20 @@ module Bank
 
 scalar AssetID
 
+type Asset {
+  asset: AssetID
+  amount: Decimal
+}
+
 tx Send(
-  asset AssetID,
   from Address,
   to Address,
-  amount Decimal
+  assets Asset*
 )
 
 tx Burn(
-  asset AssetID,
   holder Address,
-  amount Decimal
+  assets Asset*
 )
 ```
 

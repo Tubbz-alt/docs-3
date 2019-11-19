@@ -9,8 +9,8 @@ tx CreateCreditClass(
   classMetadata data.HashIRI,
   issuers Address*,
   creditMetadataClass data.HashIRI,
-  validator script.ScriptID
-  ) CreditClassID
+  validationScript script.ScriptID?
+) CreditClassID
   
 tx IssueCredit(
   cls CreditClassID,
@@ -21,13 +21,5 @@ tx IssueCredit(
 ) AssetID
 ```
 
-## Transactions
 
-### `CreateCreditClass`
-
-### `IssueCredit`
-
-### `SendCredit`
-
-### `BurnCredit`
 
