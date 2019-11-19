@@ -1,32 +1,40 @@
 # Bank
 
-## Transactions
-
-```text
+## Assets
 
 ```
-
-```text
-module Bank
-
 scalar AssetID
 
 struct Asset {
   asset: AssetID
   amount: Decimal
 }
+```
 
+## Transactions
+
+### Send
+
+```
 tx Send(
   from Address,
   to Address,
   assets Asset*
 )
+```
 
+### Burn
+
+```
 tx Burn(
   holder Address,
   assets Asset*
 )
+```
 
+## State
+
+```
 table AssetMetadata {
   asset: AssetID
   authority: bytes
