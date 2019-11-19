@@ -40,23 +40,30 @@ tx GroupAccountExec(
 
 ### Proposals
 
-#### Create
+#### CreateProposal
 
 ```text
 tx CreateProposal(
   groupAccount Address,
-  actions Tx*
+  actions Tx*,
+  metadata *data.HashIRI?
 ) ProposalID
+```
+
+#### Vote
+
+```text
+tx Vote(
+  proposal ProposalID,
+  choice uint8,
+  comment data.HashIRI?
+)
 ```
 
 #### ExecProposal
 
 ```text
-tx ExecProposal(
-  proposal ProposalID,
-  choice uint8,
-  comment data.HashIRI?
-)  
+tx ExecProposal(proposal ProposalID)
 ```
 
 ## State
@@ -88,6 +95,27 @@ table GroupAccount {
   @primary_key(address)
   @index(group)
   @index(admin)
+}
+
+table Proposal {
+  id: uint64
+  group_account: Address
+  actions: Tx*
+  start_time: DateTime
+  end_time: DateTime?
+  metadata: data.HashIRI?
+  @auto_primary_key(id)
+  @index(group_account)
+}
+
+table Vote {
+  proposal: ProposalID
+  voter: Address
+  vote: uint8
+  metadata: data.HashIRI?
+  @primary_key(proposal, voter)
+  @index(proposal)
+  @index(voter)
 }
 ```
 

@@ -111,6 +111,14 @@ tx StoreGraph(data bytes)
 tx StorePartialData(iri HashIRI, proofs ics23.ExistenceProof*)
 ```
 
+### Deleting Data
+
+```text
+// this would allow the person who committed data to remove it from state
+// but not from transaction history - maybe no point in even considering this
+@experimental tx DeleteData(iri HashIRI)
+```
+
 ## State
 
 ```text
