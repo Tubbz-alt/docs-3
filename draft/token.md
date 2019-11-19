@@ -6,9 +6,9 @@
 scalar CreditClassID
 
 tx CreateCreditClass(
-  classMetadata data.HashIRI,
+  classMetadata data.HashURI,
   issuers Address*,
-  creditMetadataClass data.HashIRI,
+  creditMetadataClass data.HashURI,
   validationScript script.ScriptID?
 ) CreditClassID
 ```
@@ -21,8 +21,17 @@ tx IssueCredit(
   holder Address,
   liquidUnits Decimal,
   burnedUnits Decimal,
-  metadata data.HashIRI
+  metadata data.HashURI
 ) AssetID
+```
+
+```text
+IssueCredit(
+  CarbonCredit,
+  SomeUser,
+  100,
+  0,
+  HashURI("Qmsdgknwetinsdgsdgi"))
 ```
 
 ## Sending and Burning \(Retiring\) Credits
@@ -45,7 +54,7 @@ query GetCreditHolding(credit AssetID, holder: Address) CreditHolding
 ```text
 table CreditClass {
   id: uint64
-  metadata: data.HashIRI
+  metadata: data.HashURI
   designer: Address
   issuers: Address*
   validationScript: script.ScriptID?

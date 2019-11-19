@@ -2,13 +2,14 @@
 
 ## Schema
 
-### HashIRI
+### HashURI
 
 ```text
-scalar HashIRI
+scalar HashURI
 ```
 
 * Multihash
+  * ex: SHA-256, Blake2b-256
 * URDNA2015
 * DRGCA2019 \(Directed RDF Graph Canonicalization Algorithm 2019\)
 
@@ -32,7 +33,7 @@ enum Datatype (
 ### Namespaces
 
 ```text
-tx CreateNamespace(name string) HashIRI
+tx CreateNamespace(name string) HashURI
 ```
 
 ### Properties
@@ -41,7 +42,7 @@ tx CreateNamespace(name string) HashIRI
 
 ```text
 tx CreateDataProperty(
-  namespace HashIRI,
+  namespace HashURI,
   name string,
   datatype Datatype,
   arity Arity
@@ -52,11 +53,11 @@ tx CreateDataProperty(
 
 ```text
 tx CreateObjectProperty(
-  namespace HashIRI,
+  namespace HashURI,
   name string,
   cls HashIRI,
   arity Arity,
-  superProperties HashIRI*
+  superProperties HashURI*
 )
 ```
 
@@ -74,23 +75,23 @@ enum Arity (
 
 ```text
 tx CreateClass(
-  namespace HashIRI,
+  namespace HashURI,
   name string,
-  requiredProperties HashIRI*,
-  superClasses HashIRI*
+  requiredProperties HashURI*,
+  superClasses HashURI*
 )
 ```
 
 ## Anchoring Data
 
 ```text
-tx AnchorData(iri HashIRI)
+tx AnchorData(iri HashURI)
 ```
 
 ### Registering URL's for Anchored Data
 
 ```text
-tx RegisterDataURL(iri HashIRI, urls URL*)
+tx RegisterDataURL(iri HashURI, urls URL*)
 ```
 
 ## Signing Data
@@ -102,7 +103,7 @@ tx SignData(iri HashIRI)
 ## Storing Graph Data
 
 ```go
-tx StoreGraph(data bytes)
+tx StoreGraph(data bytes) HashURI
 ```
 
 ### Storing Part of a Graph
