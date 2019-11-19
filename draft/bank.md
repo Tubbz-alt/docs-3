@@ -49,12 +49,12 @@ table AssetMetadata {
   @primary_key(asset)
 }
 
-interface HoldingAccount
+interface Holding
 
-table Holding {
+table AssetHolding {
   address: Address
   asset: AssetID
-  holding_account: HoldingAccount
+  holding: Holding
   @primary_key(address, asset)
   @index(address)
   @index(asset)
