@@ -2,7 +2,7 @@
 
 ## Assets
 
-```text
+```
 scalar AssetID
 
 struct Asset {
@@ -15,7 +15,7 @@ struct Asset {
 
 ### Send
 
-```text
+```
 tx Send(
   from Address,
   to Address,
@@ -25,16 +25,22 @@ tx Send(
 
 ### Burn
 
-```text
+```
 tx Burn(
   holder Address,
   assets Asset*
 )
 ```
 
+## Queries
+
+```
+query GetBalance(address Address, asset Asset) Decimal
+```
+
 ## State
 
-```text
+```
 table AssetMetadata {
   asset: AssetID
   authority: bytes

@@ -2,7 +2,7 @@
 
 ## Creating Credit Classes
 
-```text
+```
 scalar CreditClassID
 
 tx CreateCreditClass(
@@ -15,7 +15,8 @@ tx CreateCreditClass(
 
 ## Issuing Credits
 
-```text
+
+```
 tx IssueCredit(
   cls CreditClassID,
   holder Address,
@@ -25,9 +26,21 @@ tx IssueCredit(
 ) AssetID
 ```
 
-## Sending and Burning \(Retiring\) Credits
+## Sending and Burning (Retiring) Credits
 
-Sending and burning \(or retiring\) of credits is done via the bank.Send and bank.Burn transactions.
+Sending and burning (or retiring) of credits is done via the bank.Send and
+bank.Burn transactions.
+
+## Queries
+
+```
+struct CreditHolding {
+  liquidUnits: Decimal
+  burnedUnits: Decimal
+}
+
+query GetCreditHolding(credit AssetID, holder: Address) CreditHolding
+```
 
 ## State
 
@@ -43,4 +56,6 @@ table CreditClass {
   @multi_index(issuers)
 }
 ```
+
+
 
