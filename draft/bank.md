@@ -35,7 +35,9 @@ tx Burn(
 ## Queries
 
 ```text
-query GetBalance(address Address, asset Asset) Decimal
+query GetBalance(address Address, asset AssetID) Decimal
+query GetSupply(asset AssetID) Decimal
+query GetBurnedSupply(asset AssetID) Decimal)
 ```
 
 ## State
@@ -46,6 +48,14 @@ table AssetMetadata {
   authority: bytes
   module: bytes
   name: string
+  metadata: data.HashIRI?
+  @primary_key(asset)
+}
+
+table AssetSupply {
+  asset: AssetID
+  liquid_supply: Decimal
+  burned_supply: Decimal
   @primary_key(asset)
 }
 
