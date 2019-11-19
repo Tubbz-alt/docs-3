@@ -1,8 +1,8 @@
 # Credit
 
-```text
-module Credit
+## Creating Credit Classes
 
+```
 scalar CreditClassID
 
 tx CreateCreditClass(
@@ -11,7 +11,12 @@ tx CreateCreditClass(
   creditMetadataClass data.HashIRI,
   validationScript script.ScriptID?
 ) CreditClassID
-  
+```
+
+## Issuing Credits
+
+
+```
 tx IssueCredit(
   cls CreditClassID,
   holder Address,
@@ -19,7 +24,16 @@ tx IssueCredit(
   burnedUnits Decimal,
   metadata data.HashIRI
 ) AssetID
+```
 
+## Sending and Burning (Retiring) Credits
+
+Sending and burning (or retiring) of credits is done via the bank.Send and
+bank.Burn transactions.
+
+## State
+
+```text
 table CreditClass {
   id: uint64
   metadata: data.HashIRI
