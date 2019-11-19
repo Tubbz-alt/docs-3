@@ -1,5 +1,11 @@
 # Schema
 
+## Transactions
+
+### `CreateProperty`
+
+### `CreateClass`
+
 ## Datatypes
 
 ### String
@@ -14,11 +20,8 @@
 
 ### Date/Time
 
-
-
-## Type
-
-
-
 ## Property
+
+## Class
+
 
