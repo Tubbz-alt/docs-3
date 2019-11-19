@@ -1,10 +1,16 @@
 # Data
 
-```text
-module Data
+## Schema
 
+### HashIRI
+
+```
 scalar HashIRI
+```
 
+### Datatypes
+
+```
 enum Datatype (
   Bool
   Integer
@@ -17,29 +23,30 @@ enum Datatype (
   Duration
   Geography
 )
+```
 
-enum Arity (
-  One
-  Ordered
-  Unordered
-)
+### Namespaces
 
+```
 tx CreateNamespace(name string) HashIRI
+```
 
-tx CreateClass(
-  namespace HashIRI,
-  name string,
-  requiredProperties HashIRI*,
-  superClasses HashIRI*
-)
+### Properties
 
+#### Data Properties
+
+```
 tx CreateDataProperty(
   namespace HashIRI,
   name string,
   datatype Datatype,
   arity Arity
 )
+```
 
+#### Object Properties
+
+```
 tx CreateObjectProperty(
   namespace HashIRI,
   name string,
@@ -47,17 +54,60 @@ tx CreateObjectProperty(
   arity Arity,
   superProperties HashIRI*
 )
+```
 
+#### Arity
+
+```
+enum Arity (
+  One,
+  Ordered,
+  Unordered
+)
+```
+
+### Classes
+
+```
+tx CreateClass(
+  namespace HashIRI,
+  name string,
+  requiredProperties HashIRI*,
+  superClasses HashIRI*
+)
+```
+
+## Anchoring Data
+
+```
 tx AnchorData(iri HashIRI)
+```
 
-tx SignData(iri HashIRI)
-
-tx StoreGraph(data bytes)
-
+### Registering URL's for Anchored Data
+```
 tx RegisterDataURL(iri HashIRI, urls URL*)
+```
 
+## Signing Data
+
+```
+tx SignData(iri HashIRI)
+```
+
+## Storing Graph Data
+
+```go
+tx StoreGraph(data bytes)
+```
+
+### Storing Part of a Graph
+
+```
 tx StorePartialData(iri HashIRI, proofs ics23.ExistenceProof*)
+```
 
+## State
+```
 table Namespace {
   iri: HashIRI
   owner: Address
@@ -115,16 +165,4 @@ table DataSigner {
   @primary_key(iri, signer)
 }
 ```
-
-## Transactions
-
-### `AnchorData`
-
-### `SignData`
-
-### `StoreData`
-
-### `RegisterDataURL`
-
-### `StoreDataPartial`
 
