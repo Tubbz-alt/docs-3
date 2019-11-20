@@ -14,4 +14,5 @@
 * [Script](draft/script.md)
 * [Market](draft/exchange.md)
 * [Chain Schema](draft/chain-schema.md)
+* [Basic Types](draft/basic-types.md)
 
