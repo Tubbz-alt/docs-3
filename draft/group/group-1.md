@@ -66,6 +66,14 @@ tx Vote(
 tx ExecProposal(proposal ProposalID)
 ```
 
+## Asset Distribution
+
+```text
+// Distributes the provides assets to all the members of the group
+// proportionally to their weight
+tx DistributeAssets(group GroupID, assets Asset*)
+```
+
 ## State
 
 ```text
