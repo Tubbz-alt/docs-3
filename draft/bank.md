@@ -11,6 +11,20 @@ struct Asset {
 }
 ```
 
+## Escrow Accounts
+
+```text
+enum Escrow {
+  ContinuousVesting(
+    start_time DateTime,
+    end_time
+  )
+  DelayedVesting()
+  PeriodicVesting()
+  ScriptEscrow(scipt ScriptID, params bytes)
+}
+```
+
 ## Transactions
 
 ### Send
@@ -30,6 +44,21 @@ tx Burn(
   holder Address,
   assets Asset*
 )
+```
+
+### Create Escrow
+
+```text
+tx CreateEscrow(
+  escrow Escrow,
+  initialFunds Asset*,
+  parties EscrowParty*
+)
+
+type EscrowParty {
+  party: Address,
+  role: uint32
+} 
 ```
 
 ## Queries
@@ -59,15 +88,28 @@ table AssetSupply {
   @primary_key(asset)
 }
 
-interface Holding
-
-table AssetHolding {
+table AssetBalance {
   address: Address
   asset: AssetID
-  holding: Holding
+  balance: Decimal
+  burned: Decimal
   @primary_key(address, asset)
   @index(address)
   @index(asset)
+}
+
+table EscrowAccount {
+  address: Address
+  escrow: Escow
+}
+
+table EscrowParty {
+  escrow_account: Address
+  party: Address
+  role: uint32
+  @primary_key(escrow_account, party)
+  @index(escrow_account)
+  @index(party)
 }
 ```
 
