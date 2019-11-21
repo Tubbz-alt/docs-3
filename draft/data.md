@@ -11,7 +11,7 @@ scalar HashURI
 * Multihash
   * ex: SHA-256, Blake2b-256
 * URDNA2015
-* DRGCA2019 \(Directed RDF Graph Canonicalization Algorithm 2019\)
+* DRGCA2019 \(Directed RDF Graph Canonicalization Algorithm 2019\): TODO
 
 ### Datatypes
 
