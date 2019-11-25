@@ -10,6 +10,7 @@
 * [Bank](draft/bank.md)
 * [Data](draft/data.md)
 * [Credit](draft/token.md)
+* [Semantic Data](draft/semantic-data.md)
 * [Coin](draft/coin.md)
 * [Script](draft/script.md)
 * [Market](draft/exchange.md)
