@@ -17,7 +17,10 @@ enum Datatype (
   Time
   DateTimeInterval
   Duration
+  Quantity(Unit)
   Geography
+  Species
+  Chemical
 )
 ```
 
