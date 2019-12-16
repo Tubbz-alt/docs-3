@@ -1,4 +1,4 @@
-# Credit
+# Fractional NFT Credit
 
 ## Creating Credit Classes
 

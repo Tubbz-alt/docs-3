@@ -32,7 +32,7 @@ tx SignData(iri HashIRI)
 
 ## State
 
-```
+```text
 table DataTimestamp {
   iri: HashIRI
   timestamp: DateTime

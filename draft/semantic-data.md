@@ -97,7 +97,7 @@ tx StorePartialData(iri HashIRI, proofs ics23.ExistenceProof*)
 
 ## State
 
-```
+```text
 table Namespace {
   iri: HashIRI
   owner: Address
@@ -136,3 +136,4 @@ table Data {
   @primary_key(iri)
 }
 ```
+
