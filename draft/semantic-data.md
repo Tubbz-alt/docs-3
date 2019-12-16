@@ -17,7 +17,8 @@ enum Datatype (
   Time
   DateTimeInterval
   Duration
-  Quantity(Unit)
+  QuantityValue(Unit)
+  QuantityRange(Unit)
   Geography
   Species
   Chemical
