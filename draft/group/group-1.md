@@ -71,7 +71,7 @@ tx ExecProposal(proposal ProposalID)
 ```text
 // Distributes the provides assets to all the members of the group
 // proportionally to their weight
-tx DistributeAssets(group GroupID, assets Asset*)
+tx DistributeAsset(group GroupID, asset Asset, roundingDecimalPlaces UInt8)
 ```
 
 ## State
