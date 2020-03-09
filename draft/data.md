@@ -27,29 +27,29 @@ tx RegisterDataURL(iri HashURI, urls URL*)
 ## Signing Data
 
 ```text
-tx SignData(iri HashIRI)
+tx SignData(iri HashURI)
 ```
 
 ## State
 
 ```text
 table DataTimestamp {
-  iri: HashIRI
+  uri: HashURI
   timestamp: DateTime
-  @primary_key(iri)
+  @primary_key(uri)
 }
 
 table DataURL {
-  iri: HashIRI
-  urs: URL
-  @primary_key(iri, url)
+  uri: HashuRI
+  url: URL
+  @primary_key(uri, url)
 }
 
 table DataSigner {
-  iri: HashIRI
+  uri: HashIRI
   signer: Address
   timestamp: DateTime
-  @primary_key(iri, signer)
+  @primary_key(uri, signer)
 }
 ```
 
