@@ -40,13 +40,13 @@ table DataTimestamp {
 }
 
 table DataURL {
-  uri: HashuRI
+  uri: HashURI
   url: URL
   @primary_key(uri, url)
 }
 
 table DataSigner {
-  uri: HashIRI
+  uri: HashURI
   signer: Address
   timestamp: DateTime
   @primary_key(uri, signer)
